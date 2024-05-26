@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch any movie!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="redirectForm">
+        <h1>Enter ID from <a href="https://www.imdb.com/" target="_blank">https://www.imdb.com/</a></h1>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+        <button type="submit">Watch</button>
+    </form>
+
+    <script>
+        document.getElementById('redirectForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            if (id) {
+                const url = `https://vidsrc.to/embed/movie/${id}/`;
+                window.open(url, '_blank');
+            } else {
+                alert('ID is required');
+            }
+        });
+    </script>
+</body>
+</html>
